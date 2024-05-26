@@ -2,18 +2,18 @@
 
 namespace YamanHacioglu\MenuBuilder;
 
-use YamanHacioglu\MenuBuilder\Models\Menu;
-use YamanHacioglu\MenuBuilder\Models\MenuConfig;
-use YamanHacioglu\MenuBuilder\Models\MenuItem;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
+use YamanHacioglu\MenuBuilder\Models\Menu;
+use YamanHacioglu\MenuBuilder\Models\MenuConfig;
+use YamanHacioglu\MenuBuilder\Models\MenuItem;
 
 class MenuBuilder
 {
     public function routes()
     {
-        require __DIR__ . '/../routes/menu-builder.php';
+        require __DIR__.'/../routes/menu-builder.php';
     }
 
     public function getSettings($menu_id): array
@@ -21,19 +21,19 @@ class MenuBuilder
         $settings = MenuConfig::query()->where('menu_id', '=', $menu_id)->first();
         $defaultSettings = MenuConfig::query()->whereNull('menu_id')->first();
 
-        $depth = (!empty($settings) && $settings->depth)
+        $depth = (! empty($settings) && $settings->depth)
             ? $settings->depth
-            : ((!empty($defaultSettings) && $defaultSettings->depth)
+            : ((! empty($defaultSettings) && $defaultSettings->depth)
                 ? $defaultSettings->depth : config('menu-builder.depth'));
 
-        $apply_child_as_parent = (!empty($settings) && $settings->apply_child_as_parent)
+        $apply_child_as_parent = (! empty($settings) && $settings->apply_child_as_parent)
             ? $settings->apply_child_as_parent
-            : ((!empty($defaultSettings) && $defaultSettings->apply_child_as_parent)
+            : ((! empty($defaultSettings) && $defaultSettings->apply_child_as_parent)
                 ? $defaultSettings->apply_child_as_parent : config('menu-builder.apply_child_as_parent'));
 
-        $levels = (!empty($settings) && $settings->levels)
+        $levels = (! empty($settings) && $settings->levels)
             ? $settings->levels
-            : ((!empty($defaultSettings) && $defaultSettings->levels)
+            : ((! empty($defaultSettings) && $defaultSettings->levels)
                 ? $defaultSettings->levels : config('menu-builder.levels'));
 
         return [
@@ -69,7 +69,7 @@ class MenuBuilder
 
     public function assets($path)
     {
-        $file = base_path(trim(config('menu-builder.resources_path'), '/') . '/' . urldecode($path));
+        $file = base_path(trim(config('menu-builder.resources_path'), '/').'/'.urldecode($path));
         if (File::exists($file)) {
             switch ($extension = pathinfo($file, PATHINFO_EXTENSION)) {
                 case 'js':
@@ -92,8 +92,8 @@ class MenuBuilder
             return $response;
 
         }
+
         return response('', 404);
 
     }
-
 }

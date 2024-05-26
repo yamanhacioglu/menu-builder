@@ -1,15 +1,14 @@
 <?php
 
-use YamanHacioglu\MenuBuilder\Models\MenuItem;
 use YamanHacioglu\MenuBuilder\Models\Menu;
-
+use YamanHacioglu\MenuBuilder\Models\MenuItem;
 
 Route::group([
-    'prefix'    => config('menu.prefix'),
+    'prefix' => config('menu.prefix'),
     'namespace' => config('menu.controller_namespace'),
 ], function () {
     Route::get('menus', [MenuController::class, 'index']);
-    Route::get('menu/builder/{id}', [MenuItemController::class ,'showMenuItems'])->name('menu.builder');
+    Route::get('menu/builder/{id}', [MenuItemController::class, 'showMenuItems'])->name('menu.builder');
 
     /*
      * Helpers Route
@@ -46,17 +45,17 @@ foreach ($menuItems as $menuItem) {
         $controller = $menuItem->controller ?? '\YamanHacioglu\MenuBuilder\Http\Controllers\MenuItemController@setRoute';
         $partials = explode('@', $menuItem->controller);
 
-        if (!class_exists($partials[0])) {
+        if (! class_exists($partials[0])) {
             $controller = '\YamanHacioglu\MenuBuilder\Http\Controllers\MenuItemController@setRoute';
         }
 
-        if ($menuItem->route && !$menuItem->middleware) {
+        if ($menuItem->route && ! $menuItem->middleware) {
             Route::get($menuItem->url, $controller)->name($menuItem->route);
-        } elseif ($menuItem->middleware && !$menuItem->route) {
+        } elseif ($menuItem->middleware && ! $menuItem->route) {
             Route::get($menuItem->url, $controller)->middleware($menuItem->middleware);
         } elseif ($menuItem->route && $menuItem->middleware) {
             Route::get($menuItem->url, $controller)->name($menuItem->route)->middleware(explode(',', $menuItem->middleware));
-        } elseif (!$menuItem->route && !$menuItem->middleware) {
+        } elseif (! $menuItem->route && ! $menuItem->middleware) {
             Route::get($menuItem->url, $controller);
         }
     }

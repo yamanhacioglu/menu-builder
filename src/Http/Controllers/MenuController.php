@@ -2,12 +2,10 @@
 
 namespace YamanHacioglu\MenuBuilder\Http\Controllers;
 
-
-use YamanHacioglu\MenuBuilder\Models\Menu;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use YamanHacioglu\MenuBuilder\Models\Menu;
 
 class MenuController extends Controller
 {
@@ -28,7 +26,7 @@ class MenuController extends Controller
         if ($menus = Menu::query()->orderBy('order', 'asc')->get()) {
             return response()->json([
                 'success' => true,
-                'menus'   => $menus,
+                'menus' => $menus,
             ]);
         }
     }
@@ -45,7 +43,7 @@ class MenuController extends Controller
 
             return response()->json([
                 'success' => true,
-                'menu'    => $menu,
+                'menu' => $menu,
             ]);
         }
 
@@ -56,9 +54,10 @@ class MenuController extends Controller
     {
         if ($request->ajax()) {
             $html = \MenuBuilder::generateMenu($request->id);
+
             return response()->json([
                 'success' => true,
-                'html'    => $html,
+                'html' => $html,
             ]);
         }
     }
@@ -66,7 +65,6 @@ class MenuController extends Controller
     /**
      * Create new menu.
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -96,14 +94,13 @@ class MenuController extends Controller
 
         return response()->json([
             'success' => false,
-            'errors'  => ['There is no ajax call'],
+            'errors' => ['There is no ajax call'],
         ]);
     }
 
     /**
      * Sort menu list.
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -135,13 +132,12 @@ class MenuController extends Controller
     /**
      * Update the specified menu.
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|true
      */
     public function update(Request $request)
     {
-        if (($errors = $this->validation((object)$request->all())) !== true) {
+        if (($errors = $this->validation((object) $request->all())) !== true) {
             return $errors;
         }
 
@@ -154,7 +150,7 @@ class MenuController extends Controller
             if ($menu->update()) {
                 return response()->json([
                     'success' => true,
-                    'menu'    => $menu,
+                    'menu' => $menu,
                     'request' => $request->all(),
                 ]);
             }
@@ -166,7 +162,6 @@ class MenuController extends Controller
     /**
      * Delete the specified menu.
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
@@ -189,8 +184,7 @@ class MenuController extends Controller
     /**
      * Validation.
      *
-     * @param object $data
-     *
+     * @param  object  $data
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|true
      */
     public function validation($data)
@@ -202,7 +196,7 @@ class MenuController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
-                'errors'  => $validator->errors(),
+                'errors' => $validator->errors(),
             ]);
         }
 
@@ -212,7 +206,6 @@ class MenuController extends Controller
     /**
      * Load menu builder assests.
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
      */

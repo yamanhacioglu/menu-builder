@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MenuItem extends Model
 {
-    protected $table ='menu_items';
+    protected $table = 'menu_items';
+
     protected $fillable = ['title', 'slug', 'order', 'parent_id'];
 
     public function parent(): BelongsTo
@@ -16,17 +17,17 @@ class MenuItem extends Model
         return $this->belongsTo(__CLASS__, 'parent_id');
     }
 
-    public function children() : HasMany
+    public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id')->orderBy('order', 'asc');
     }
 
-    public function childrens() : HasMany
+    public function childrens(): HasMany
     {
         return $this->children()->with('childrens');
     }
 
-    public function settings() : HasMany
+    public function settings(): HasMany
     {
         return $this->hasMany(MenuConfig::class, 'menu_id');
     }

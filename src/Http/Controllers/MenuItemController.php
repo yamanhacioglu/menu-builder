@@ -4,16 +4,21 @@ namespace YamanHacioglu\MenuBuilder\Http\Controllers;
 
 use YamanHacioglu\MenuBuilder\Facades\Menu as MenuBuilder;
 use YamanHacioglu\MenuBuilder\Models\Menu;
-use YamanHacioglu\MenuBuilder\Models\MenuItem;
 use YamanHacioglu\MenuBuilder\Models\MenuConfig;
+use YamanHacioglu\MenuBuilder\Models\MenuItem;
 
 class MenuItemController
 {
     protected $order = [];
+
     protected $childrens = [];
+
     protected $parents = [];
+
     protected $depth = 0;
+
     protected $root = null;
+
     protected $root_depth = 0;
 
     public function showMenuItems(Request $request)
@@ -26,8 +31,7 @@ class MenuItemController
     /**
      * Retrive all items for the specified menu.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function getMenuItems(Request $request)
@@ -46,11 +50,11 @@ class MenuItemController
                 }
 
                 return response()->json([
-                    'success'  => true,
-                    'lists'    => $itemsWithChildrens,
-                    'items'    => $parents,
+                    'success' => true,
+                    'lists' => $itemsWithChildrens,
+                    'items' => $parents,
                     'settings' => $settings,
-                    'default'  => $defaultSettings,
+                    'default' => $defaultSettings,
                     'menuHtml' => $menuHtml,
                 ]);
             }
@@ -62,8 +66,7 @@ class MenuItemController
     /**
      * Retrieve single menu item.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function getMenuItem(Request $request)
@@ -80,10 +83,10 @@ class MenuItemController
                 $parents = $this->checkParentsWithChildrens($menu_id, $items, $menuItem, $depth, $child_ids);
 
                 return response()->json([
-                    'success'   => true,
-                    'item'      => $menuItem,
+                    'success' => true,
+                    'item' => $menuItem,
                     'childrens' => $childrens,
-                    'parents'   => $parents,
+                    'parents' => $parents,
                 ]);
             }
         }
@@ -96,8 +99,7 @@ class MenuItemController
     /**
      * Sort menu items.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function sort(Request $request)
@@ -114,7 +116,7 @@ class MenuItemController
                     $newOrder = $this->order[$parent_id];
                 }
 
-                if (!$parent_id) {
+                if (! $parent_id) {
                     $this->order['root'] = isset($this->order['root']) ? $this->order['root'] + 1 : 1;
                     $newOrder = $this->order['root'];
                 }
@@ -135,8 +137,7 @@ class MenuItemController
     /**
      * Create new menu item.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -179,8 +180,7 @@ class MenuItemController
     /**
      * Update the specified menu item.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -203,10 +203,10 @@ class MenuItemController
                     $parent_id = $request->parent_id;
                 }
 
-                if (!$request->apply_child_as_parent) {
+                if (! $request->apply_child_as_parent) {
                     $depth = $this->getDepth($childrens);
 
-                    if (!$request->parent_id) {
+                    if (! $request->parent_id) {
                         $parent_id = null;
                     }
 
@@ -243,8 +243,7 @@ class MenuItemController
     /**
      * Delete the specified menu item.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
@@ -271,21 +270,20 @@ class MenuItemController
     /**
      * Validation.
      *
-     * @param object $data
-     *
+     * @param  object  $data
      * @return \Illuminate\Http\Response|true
      */
     public function validation($data)
     {
         $validator = Validator::make($data, [
             'menu_id' => 'required',
-            'title'   => 'required|max:191',
+            'title' => 'required|max:191',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
-                'errors'  => $validator->errors(),
+                'errors' => $validator->errors(),
             ]);
         }
 
@@ -295,12 +293,11 @@ class MenuItemController
     /**
      * Check Root Depths alongs parent and childrens.
      *
-     * @param int    $menu_id
-     * @param array  $items
-     * @param object $menuItem
-     * @param int    $child_depth
-     * @param array  $ids
-     *
+     * @param  int  $menu_id
+     * @param  array  $items
+     * @param  object  $menuItem
+     * @param  int  $child_depth
+     * @param  array  $ids
      * @return array
      */
     public function checkParentsWithChildrens($menu_id, $items, $menuItem, $child_depth = 0, $ids = [])
@@ -319,7 +316,7 @@ class MenuItemController
                 if ($depth < $settings->depth) {
                     if ($settings->apply_child_as_parent) {
                         $this->parents[] = $item;
-                    } elseif (!in_array($item->id, $ids)) {
+                    } elseif (! in_array($item->id, $ids)) {
                         $this->parents[] = $item;
                     }
                 }
@@ -332,9 +329,8 @@ class MenuItemController
     /**
      * Check Root Parent.
      *
-     * @param int   $menu_id
-     * @param array $items
-     *
+     * @param  int  $menu_id
+     * @param  array  $items
      * @return array
      */
     public function checkParents($menu_id, $items)
@@ -360,10 +356,9 @@ class MenuItemController
     /**
      * Check Parent Depth.
      *
-     * @param int $menu_id
-     * @param int $parent_id
-     * @param int $child_depth
-     *
+     * @param  int  $menu_id
+     * @param  int  $parent_id
+     * @param  int  $child_depth
      * @return int $parent_id|null
      */
     public function checkParentDepth($menu_id, $parent_id, $child_depth = 0)
@@ -387,8 +382,7 @@ class MenuItemController
     /**
      * Get Root Parent Id.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return int
      */
     public function getRootParent($id)
@@ -407,8 +401,7 @@ class MenuItemController
     /**
      * Get root depth.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return int
      */
     public function getRootDepth($id)
@@ -427,8 +420,7 @@ class MenuItemController
     /**
      * Get Children depth.
      *
-     * @param array $childrens
-     *
+     * @param  array  $childrens
      * @return int
      */
     public function getDepth($childrens)
@@ -449,8 +441,7 @@ class MenuItemController
     /**
      * Convert childrens multidimensional to single dimension.
      *
-     * @param array $childrens
-     *
+     * @param  array  $childrens
      * @return array|false
      */
     public function getSingleDimentionChildrens($childrens)
@@ -462,7 +453,7 @@ class MenuItemController
         foreach ($childrens as $children) {
             $this->childrens[] = $children;
 
-            if (!empty($children['childrens'])) {
+            if (! empty($children['childrens'])) {
                 $this->getSingleDimentionChildrens($children['childrens']);
             }
         }
@@ -473,10 +464,9 @@ class MenuItemController
     /**
      * Get all Childrens.
      *
-     * @param int    $menu_id
-     * @param int    $parent_id
-     * @param string $orderBy
-     *
+     * @param  int  $menu_id
+     * @param  int  $parent_id
+     * @param  string  $orderBy
      * @return array
      */
     public function getChildrens($menu_id, $parent_id = null, $orderBy = 'asc')
@@ -490,8 +480,7 @@ class MenuItemController
     /**
      * Get Items id.
      *
-     * @param array $items
-     *
+     * @param  array  $items
      * @return array
      */
     public function getIds($items)
@@ -508,8 +497,7 @@ class MenuItemController
     /**
      * Create or Update Settings.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function storeSettings(Request $request)
@@ -523,7 +511,7 @@ class MenuItemController
 
                     if ($menuSetting->update()) {
                         return response()->json([
-                            'success'  => true,
+                            'success' => true,
                             'settings' => $menuSetting,
                         ]);
                     }
@@ -536,7 +524,7 @@ class MenuItemController
 
                     if ($menuSetting->save()) {
                         return response()->json([
-                            'success'  => true,
+                            'success' => true,
                             'settings' => $menuSetting,
                         ]);
                     }
@@ -550,8 +538,7 @@ class MenuItemController
     /**
      * Get Single Setting.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function getSettings(Request $request)
@@ -560,7 +547,7 @@ class MenuItemController
             if ($request->menu_id) {
                 if ($menuSetting = MenuConfig::query()->where('menu_id', $request->menu_id)->first()) {
                     return response()->json([
-                        'success'  => true,
+                        'success' => true,
                         'settings' => $menuSetting,
                     ]);
                 }

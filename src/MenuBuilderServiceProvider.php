@@ -4,7 +4,6 @@ namespace YamanHacioglu\MenuBuilder;
 
 use CodexShaper\Menu\Commands\InstallMenuBuilder;
 use CodexShaper\Menu\MenuBuilder;
-use CodexShaper\Menu\MenuServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
@@ -42,7 +41,7 @@ class MenuBuilderServiceProvider extends ServiceProvider
 
     protected function loadHelpers()
     {
-        foreach(glob(__DIR__.'/Helpers/*.php') as $filename) {
+        foreach (glob(__DIR__.'/Helpers/*.php') as $filename) {
             require_once $filename;
         }
     }
@@ -50,13 +49,13 @@ class MenuBuilderServiceProvider extends ServiceProvider
     protected function registerPublish()
     {
         $publishable = [
-            'menu.config'    => [
+            'menu.config' => [
                 __DIR__.'/../config/menu.php' => config_path('menu.php'),
             ],
-            'menu.seeds'     => [
+            'menu.seeds' => [
                 __DIR__.'/../database/seeds/' => database_path('seeds'),
             ],
-            'menu.views'     => [
+            'menu.views' => [
                 __DIR__.'/../resources/views' => resource_path('views/vendor/menus/views'),
             ],
             'menu.resources' => [
