@@ -2,9 +2,10 @@
 
 namespace YamanHacioglu\MenuBuilder;
 
+use YamanHacioglu\MenuBuilder\Commands\InstallMenuBuilder;
+use YamanHacioglu\MenuBuilder\MenuBuilder;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use YamanHacioglu\MenuBuilder\Commands\InstallMenuBuilder;
 
 class MenuBuilderServiceProvider extends ServiceProvider
 {
@@ -49,7 +50,7 @@ class MenuBuilderServiceProvider extends ServiceProvider
     {
         $publishable = [
             'menu.config' => [
-                __DIR__.'/../config/menu.php' => config_path('menu.php'),
+                __DIR__.'/../config/menu-builder.php' => config_path('menu-builder.php'),
             ],
             'menu.seeds' => [
                 __DIR__.'/../database/seeds/' => database_path('seeds'),
