@@ -1,9 +1,9 @@
 <?php
 
-use YamanHacioglu\MenuBuilder\Models\Menu;
-use YamanHacioglu\MenuBuilder\Models\MenuItem;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use YamanHacioglu\MenuBuilder\Models\Menu;
+use YamanHacioglu\MenuBuilder\Models\MenuItem;
 
 class MenuItemsSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class MenuItemsSeeder extends Seeder
      */
     public function run()
     {
-        if (!$menu = Menu::where('slug', 'admin')->first()) {
+        if (! $menu = Menu::where('slug', 'admin')->first()) {
             $menu = new Menu();
             $menu->name = 'Admin';
             $menu->slug = Str::slug('Admin');
@@ -22,7 +22,7 @@ class MenuItemsSeeder extends Seeder
             $menu->order = 1;
             $menu->save();
         }
-        if (!MenuItem::where('slug', Str::slug('Menu Builder'))->first()) {
+        if (! MenuItem::where('slug', Str::slug('Menu Builder'))->first()) {
             $menuItem = new MenuItem();
             $menuItem->menu_id = $menu->id;
             $menuItem->title = 'Menu Builder';

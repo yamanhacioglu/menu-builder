@@ -20,7 +20,7 @@ class MenuDatabaseSeeder extends Seeder
 
         foreach ($seeds as $class) {
             $file = $this->seedersPath.$class.'.php';
-            if (file_exists($file) && !class_exists($class)) {
+            if (file_exists($file) && ! class_exists($class)) {
                 require_once $file;
             }
             with(new $class())->run();

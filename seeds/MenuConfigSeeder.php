@@ -1,7 +1,7 @@
 <?php
 
-use YamanHacioglu\MenuBuilder\Models\MenuSetting;
 use Illuminate\Database\Seeder;
+use YamanHacioglu\MenuBuilder\Models\MenuSetting;
 
 class MenuConfigSeeder extends Seeder
 {
@@ -17,18 +17,18 @@ class MenuConfigSeeder extends Seeder
         $settings->depth = 5;
         $settings->apply_child_as_parent = 0;
         $settings->levels = [
-            'root'  => [
+            'root' => [
                 'style' => 'vertical', // horizontal | vertical
             ],
             'child' => [
-                'show'     => 'onClick', // onclick | onHover
+                'show' => 'onClick', // onclick | onHover
                 'position' => 'right',
-                'level_1'  => [
-                    'show'     => 'onClick',
+                'level_1' => [
+                    'show' => 'onClick',
                     'position' => 'bottom',
                 ],
-                'level_2'  => [
-                    'show'     => 'onHover',
+                'level_2' => [
+                    'show' => 'onHover',
                     'position' => 'right',
                 ],
             ],
