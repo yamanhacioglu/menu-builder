@@ -2,8 +2,8 @@
 
 namespace YamanHacioglu\MenuBuilder;
 
-use CodexShaper\Menu\Commands\InstallMenuBuilder;
-use CodexShaper\Menu\MenuBuilder;
+use YamanHacioglu\MenuBuilder\Commands\InstallMenuBuilder;
+use YamanHacioglu\MenuBuilder\MenuBuilder;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 
