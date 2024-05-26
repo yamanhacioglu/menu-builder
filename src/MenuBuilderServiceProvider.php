@@ -21,7 +21,7 @@ class MenuBuilderServiceProvider extends ServiceProvider
             return new MenuBuilder();
         });
         $this->mergeConfigFrom(
-            __DIR__.'/../config/menu.php',
+            __DIR__.'/../config/menu-builder.php',
             'config'
         );
         $this->loadHelpers();
