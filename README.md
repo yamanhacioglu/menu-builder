@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/yamanhacioglu/menu-builder.svg?style=flat-square)](https://packagist.org/packages/yamanhacioglu/menu-builder)
 <!--delete-->
 
-Laravel Menu Builder with VueJs and jQuery. Build your multi level menu within 5 minutes.
+Laravel Menu Builder with VueJs (v3) and jQuery. Build your multi level menu within 5 minutes.
 
 
 ## Installation
@@ -23,19 +23,6 @@ You can install the menu requirements via:
 php artisan menu:install
 ```
 The package self-publishes at https://domain.tld/admin/menus by default. To edit this address, you need to define prefix and base_url variables in the config file.
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
-```
-
-## Usage
-
-```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
-```
 
 ## Testing
 
