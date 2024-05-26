@@ -2,10 +2,9 @@
 
 namespace YamanHacioglu\MenuBuilder;
 
-use YamanHacioglu\MenuBuilder\Commands\InstallMenuBuilder;
-use YamanHacioglu\MenuBuilder\MenuBuilder;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
+use YamanHacioglu\MenuBuilder\Commands\InstallMenuBuilder;
 
 class MenuBuilderServiceProvider extends ServiceProvider
 {
