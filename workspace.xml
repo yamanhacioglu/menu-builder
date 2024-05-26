@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc144575-91b9-464e-939a-993576536682" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/laravel-menu-builder/publishable/assets/css/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel-menu-builder/publishable/assets/css/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel-menu-builder/publishable/assets/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel-menu-builder/publishable/assets/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/publishable/assets/css/material-dashboard.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/DraggableMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/DraggableMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuBuilder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuBuilder.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuItemModals.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuItemModals.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuModals.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/MenuModals.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/NestMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/NestMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/layouts/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/layouts/LeftSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/assets/js/components/layouts/LeftSidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-menu-builder/src/Models/MenuItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-menu-builder/src/Models/MenuItem.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/laravel-menu-builder" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2gyWw0eTBr08juoNi4W88ZP5g1z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "last_opened_file_path": "/var/www/html/menu/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/snap/phpstorm/390/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/resources/assets/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc144575-91b9-464e-939a-993576536682" name="Changes" comment="" />
+      <created>1716670533083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716670533083</updated>
+      <workItem from="1716670534307" duration="5941000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
