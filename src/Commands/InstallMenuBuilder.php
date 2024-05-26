@@ -2,11 +2,11 @@
 
 namespace YamanHacioglu\MenuBuilder\Commands;
 
-use YamanHacioglu\MenuBuilder\MenuServiceProvider;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
+use YamanHacioglu\MenuBuilder\MenuServiceProvider;
 
 class InstallMenuBuilder extends Command
 {
@@ -16,12 +16,14 @@ class InstallMenuBuilder extends Command
      * @var string
      */
     protected $name = 'menu:install';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Install the Laravel v11 Menu Builder';
+
     /**
      * The database Seeder Path.
      *
@@ -58,7 +60,6 @@ class InstallMenuBuilder extends Command
     /**
      * Execute the console command.
      *
-     * @param \Illuminate\Filesystem\Filesystem $filesystem
      *
      * @return void
      */
@@ -81,7 +82,7 @@ class InstallMenuBuilder extends Command
         // Load Permission routes into application's 'routes/web.php'
         $this->info('Adding Permission routes to routes/web.php');
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
-        if (false === strpos($routes_contents, 'MenuBuilder::routes();')) {
+        if (strpos($routes_contents, 'MenuBuilder::routes();') === false) {
             $filesystem->append(
                 base_path('routes/web.php'),
                 "\n\nMenuBuilder::routes();\n"
@@ -92,7 +93,7 @@ class InstallMenuBuilder extends Command
         $class = 'MenuDatabaseSeeder';
         $file = $this->seedersPath.$class.'.php';
 
-        if (file_exists($file) && !class_exists($class)) {
+        if (file_exists($file) && ! class_exists($class)) {
             require_once $file;
         }
         with(new $class())->run();
